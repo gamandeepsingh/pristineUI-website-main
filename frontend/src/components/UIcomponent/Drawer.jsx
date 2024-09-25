@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { IoCopy } from 'react-icons/io5';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
+import { IoCopy } from 'react-icons/io5';
 const DynamicButton = ({
     children,
     className = '',
@@ -16,6 +16,7 @@ const DynamicButton = ({
     hoverCircleColor = 'white',
     hoverBtnColor = 'black',
     type = 'growRound',
+    btnText = 'Button',
     ...props
 }) => {
     return (
@@ -47,8 +48,6 @@ const DynamicButton = ({
         </button>
     );
 };
-
-
 const DrawerModal = ({
     direction = 'bottom',
     typeOfButton = 'softShadow',
@@ -59,7 +58,7 @@ const DrawerModal = ({
     description,
     onClickHandler,
     image,
-    buttonDisplay = true,
+    buttonDisplay=false,
     children,
     props,
     style,
@@ -72,18 +71,30 @@ const DrawerModal = ({
         setIsOpen((prevState) => !prevState);
     };
 
-    if (!isOpen) return null;
+    // const handleToggleFullHeight = () => {
+    //     setFullHeight((prevState) => !prevState);
+    // };
 
+    // const theme = className.match(/bg-([a-zA-Z]+)/);
+    const themeColor = "dark";
+    
     return (
         <div >
-            <DynamicButton
+            {/* <DynamicButton
                 type={typeOfButton}
                 {...buttonProps}
                 onClick={toggleDrawer}
                 className={className}
             >
                 {drawerButtonText}
-            </DynamicButton>
+            </DynamicButton> */}
+            <button
+            className='bg-primary text-white dark:text-white px-4 py-2 rounded-lg'
+            onClick={toggleDrawer}
+            {...buttonProps}
+            >
+                {drawerButtonText}
+            </button>
 
             <Drawer
                 open={isOpen}
@@ -92,8 +103,8 @@ const DrawerModal = ({
                 style={{
                     borderRadius: direction === 'top' ? ' 0 0 20px 20px' : direction === 'bottom' ? '20px 20px 0px 0px' : direction === 'left' ? '0 20px 20px 0' : '20px 0 0 20px ',
                     height: direction === 'top' ? '100% !important' : "",
-                    ...style
-                }}
+                    ...style 
+                  }}
                 {...props}
                 className={className}
             >
@@ -102,7 +113,7 @@ const DrawerModal = ({
                     className="drawer-top-rounded-button"
                 />
                 <div
-                    className="drawer-container"
+                    className="drawer-container  dark:text-black text-black"
                     style={{
                         height: fullHeight ? '80vh' : '',
                     }}
@@ -113,7 +124,7 @@ const DrawerModal = ({
                         </div>
                     )}
                     {description && (
-                        <div className="drawer-description">
+                        <div className="drawer-description dark:text-black text-black">
                             <p>{description}</p>
                         </div>
                     )}
@@ -126,26 +137,32 @@ const DrawerModal = ({
                     {
                         buttonDisplay &&
                         <DynamicButton
-                            type="simple"
-                            hoverTextColor="white"
-                            onClick={onClickHandler}
-                            className={`outline-2 ${className}`}
-                        >
-                            {buttonText}
-                        </DynamicButton>
+                        type="simple"
+                        backgroundColor={`${themeColor!=="dark"? "white" :"black"}`}
+                        hoverBtnColor={`${themeColor!=="dark"? "grey" :"black"}`}
+                        hoverTextColor="white"
+                        onClick={onClickHandler}
+                        className={`outline-2 ${className}`}
+                        textColor='white'
+                    >
+                        {buttonText}
+                    </DynamicButton>
                     }
                     {
                         buttonDisplay &&
                         <DynamicButton
-                            type="simple"
-                            className={`outline-2`}
-                            onClick={() => {
-                                toggleDrawer();
-                                setFullHeight(false);
-                            }}
-                        >
-                            Close
-                        </DynamicButton>
+                        type="simple"
+                        backgroundColor={`${themeColor!=="dark"? "grey" :"transparent"}`}
+                        hoverBtnColor='black'
+                        textColor='black'
+                        className={`outline-2`}
+                        onClick={() => {
+                            toggleDrawer();
+                            setFullHeight(false);
+                        }}
+                    >
+                        Close
+                    </DynamicButton>
                     }
                 </div>
             </Drawer>
@@ -157,12 +174,12 @@ const DrawerComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState({
         direction: 'bottom',
-        typeOfButton: 'softShadow',
+        typeOfButton: 'simple',
         drawerButtonText: 'Show',
         buttonText: 'Confirm',
         buttonProps: "Click",
-        headerText: "Header",
-        description: "lorem ipsum",
+        headerText: "Elanine Creatives",
+        description: "lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
         image: "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
         buttonDisplay: true,
         onClickHandler: () => console.log('Button Clicked'),
@@ -190,13 +207,14 @@ const DrawerComponent = () => {
     description="${data.description}"
     image="${data.image}"
     buttonDisplay={${data.buttonDisplay}}
-    onClickHandler={${data.onClickHandler.toString()}}
+    onClickHandler={${()=>console.log('Button Clicked')}};
+    }}
 />
         `;
         navigator.clipboard.writeText(code).then(
             () => {
                 setCopyMessage('Copied!');
-                setTimeout(() => setCopyMessage(''), 2000); // Remove message after 2 seconds
+                setTimeout(() => setCopyMessage(''), 2000);
             },
             (err) => {
                 setCopyMessage('Failed!');
@@ -210,7 +228,7 @@ const DrawerComponent = () => {
             <div className='flex justify-center items-center '>
                 <div className='bg-dark/10 dark:bg-white/10 w-full h-full rounded-2xl flex flex-col items-center md:justify-start md:p-3 gap-y-1 relative'>
 
-                    {/* <div className='grid xl:grid-cols-2 grid-cols-1 gap-5'>
+                     <div className='grid xl:grid-cols-2 grid-cols-1 gap-5'>
                         <div className='flex flex-col gap-y-2'>
                             <label className='text-dark dark:text-primary'>Direction:</label>
                             <input
@@ -329,25 +347,25 @@ const DrawerComponent = () => {
                                 {copyMessage}
                             </p>
                         </button>
-                    </div> */}
+                    </div> 
 
                 </div>
             </div>
             <div className='text-white dark:bg-light/10 bg-dark/10 flex justify-center items-center min-h-80 rounded-xl'>
                 <div className='w-full h-full flex items-center justify-center rounded-2xl relative'>
-                    lvkm
+                    {/* <DrawerModal
+                        headerText={'Elanine Creatives'}
+                        description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy."}
+                        image={"https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg"}
+                        direction='bottom'
+                        buttonDisplay={true}
+                        buttonText='Click me'
+                    >
+                    </DrawerModal> */}
                     <DrawerModal
-                        direction = 'bottom'
-                        typeOfButton = 'softShadow'
-                        drawerButtonText = 'Show'
-                        buttonText = 'Confirm'
-                        buttonProps = "Click"
-                        headerText = "Header"
-                        description = "lorem ipsum"
-                        onClickHandler = {() => console.log('Button Clicked')}
-                        image = "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg"
-                        buttonDisplay = {true}
-                    />
+                        {...data}
+                    >
+                    </DrawerModal>
 
                 </div>
             </div>

@@ -6,7 +6,7 @@ const Home = ({toggleTheme}) => {
     return (
         <div className="bg-light text-dark dark:bg-dark dark:text-light min-h-svh">
             
-            {/* <Hero/> */}
+            <Hero/>
             <About/>
             
         </div>

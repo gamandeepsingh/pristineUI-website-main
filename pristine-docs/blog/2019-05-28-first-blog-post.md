@@ -1,12 +1,14 @@
 ---
-slug: first-blog-post
-title: First Blog Post
-authors: [slorber, yangshun]
-tags: [hola, docusaurus]
+title: First Blog
+description: How I set up blogs on my Docusaurus site.
+slug: adding-blogs
+date: 2023-09-23
+authors:
+  - name: Gamandeep Singh
+    title: Developer & Blogger
+    url: https://github.com/gamandeepsingh
+    image_url: https://github.com/gamandeepsingh.png
+tags: [blog, setup]
 ---
 
-Lorem ipsum dolor sit amet...
-
-<!-- truncate -->
-
-...consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet
+Adding blogs to my Docusaurus site was easy! Here’s how I did it...

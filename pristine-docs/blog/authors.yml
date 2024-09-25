@@ -1,23 +1,22 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+rohit:
+  name: Rohit Chaudhary
+  title: Full Stack Engineer @Elanine
+  url: https://github.com/rohitchoudhary09
+  image_url: https://avatars.githubusercontent.com/u/116256043?v=4
   page: true
   socials:
-    x: yangshunz
-    github: yangshun
+    x: rohitchoudhary09
+    github: rohitchoudhary09
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+utkarsh:
+  name: Utkarsh Goel
+  title: Full Stack Engineer @Elanine
+  url: https://elanine.com
+  image_url: https://avatars.githubusercontent.com/u/66838142?v=4
   page:
     # customize the url of the author page at /blog/authors/<permalink>
     permalink: '/all-sebastien-lorber-articles'
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    x: utkarshgoel10
+    linkedin: utkarshgoel10
+    github: utkarshgoel10

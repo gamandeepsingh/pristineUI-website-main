@@ -857,10 +857,6 @@ button:active{
     gap: 20px;
 }
 
-.EZDrawer .EZDrawer__container.bg-dark{
-    background-color: #000;
-    color: #fff;
-}
 
 .drawer-image{
     width: 100%;

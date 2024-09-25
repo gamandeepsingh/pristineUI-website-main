@@ -14,8 +14,8 @@ const nav = [
     link: "/components",
   },
   {
-    name: "About",
-    link: "/#",
+    name: "Docs",
+    link: "http://localhost:3000/docs/category/getting-started",
   },
 ]
 

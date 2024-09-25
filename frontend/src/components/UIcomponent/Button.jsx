@@ -98,7 +98,7 @@ ${data.btnText}
 
     return (
         <div className='bg-light dark:bg-dark  w-screen  py-3 grid md:grid-cols-2 gap-2 md:gap-10 sm:px-10'>
-            <div className='text-white flex justify-center items-center '>
+            <div className='text-white flex justify-center items-center min-h-52'>
                 <div className='w-full dark:bg-light/10 bg-dark/10 h-full flex items-center justify-center rounded-2xl'>
                     <DynamicButton
                         {...data}
@@ -106,7 +106,6 @@ ${data.btnText}
                     >
                         {data.btnText}
                     </DynamicButton>
-
                 </div>
             </div>
             <div className='flex justify-center items-center '>

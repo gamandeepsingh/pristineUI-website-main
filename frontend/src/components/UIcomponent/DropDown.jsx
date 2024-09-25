@@ -65,8 +65,8 @@ const DropDownComponent = () => {
         onChange: (value) => console.log(value),
         textColor: 'white',
     });
-
     const [newOptionLabel, setNewOptionLabel] = useState('');
+    const [copyMessage, setCopyMessage] = useState('');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -184,7 +184,7 @@ const DropDownComponent = () => {
                         {/* Add Option Input */}
                         <div className="flex flex-col gap-y-2">
                             <label className="text-dark dark:text-primary">Add Option:</label>
-                            <div className="flex flex-col gap-2 relative">
+                            <div className="flex flex-col gap-2 relative overflow-hidden">
                                 <input
                                     className="text-sm custom-input w-full md:w-fit px-4 py-2 border text-dark border-gray-300 rounded-lg shadow-sm transition duration-300 ease-in-out transform focus:outline-none hover:shadow-lg hover:border-primary bg-gray-100"
                                     type="text"
@@ -240,6 +240,9 @@ const DropDownComponent = () => {
                             onClick={copyCodeToClipboard}
                         >
                             <IoCopy />
+                            <p className={`absolute left-0 -top-1 -translate-x-1/4 -translate-y-full text-light bg-dark py-2 px-3 ml-1 rounded-3xl transform ${copyMessage ? "scale-100" : "scale-0"} transition-transform duration-200`}>
+                                {copyMessage}
+                            </p>
                         </button>
                     </div>
                 </div>
